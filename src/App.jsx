@@ -4,8 +4,11 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
 import Projects from './components/Projects'
+import CallToAction from './components/CallToAction'
+import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import FloatingCTA from './components/FloatingCTA'
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -36,9 +39,12 @@ function App() {
         <Hero lang={lang} />
         <Projects lang={lang} />
         <About lang={lang} />
+        <Testimonials lang={lang} />
+        <CallToAction lang={lang} />
         <Contact lang={lang} />
       </main>
       <Footer lang={lang} />
+      <FloatingCTA lang={lang} />
     </div>
   )
 }

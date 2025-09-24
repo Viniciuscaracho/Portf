@@ -26,6 +26,7 @@ const translations = {
     tech: 'Tecnologias & Ferramentas',
     methodologies: 'Metodologias',
     methodologiesList: ['Agile', 'BDD', 'TDD', 'DevOps', 'CI/CD'],
+    certifications: 'Certificações',
   },
   en: {
     about: 'About Me',
@@ -38,6 +39,7 @@ const translations = {
     tech: 'Technologies & Tools',
     methodologies: 'Methodologies',
     methodologiesList: ['Agile', 'BDD', 'TDD', 'DevOps', 'CI/CD'],
+    certifications: 'Certifications',
   }
 }
 
@@ -74,6 +76,27 @@ const About = ({ lang = 'pt' }) => {
   ]
 
   const t = translations[lang];
+
+  const certifications = [
+    {
+      name: 'Certificado Docker Essentials',
+      issuer: 'LINUXtips',
+      date: 'Nov 2023',
+      link: 'https://www.linkedin.com/in/vinicius-caracho-3ab946229/details/certifications/1743033233349/single-media-viewer/?type=DOCUMENT&profileId=ACoAADlFKrMBahPbGXPtwMXVRjmNXKr5Op52h8Q&locale=en_US'
+    },
+    {
+      name: 'Prometheus | The Complete Hands-On for Monitoring & Alerting',
+      issuer: 'LINUXtips',
+      date: '2023',
+      link: 'https://www.linkedin.com/in/vinicius-caracho-3ab946229/details/certifications/1743033233349/single-media-viewer/?locale=en_US&profileId=ACoAADlFKrMBahPbGXPtwMXVRjmNXKr5Op52h8Q'
+    },
+    {
+      name: 'Kubernetes for the Absolute Beginners - Hands-on',
+      issuer: 'LINUXtips',
+      date: '2023',
+      link: 'https://www.linkedin.com/in/vinicius-caracho-3ab946229/details/certifications/1743033153077/single-media-viewer/?type=DOCUMENT&profileId=ACoAADlFKrMBahPbGXPtwMXVRjmNXKr5Op52h8Q&locale=en_US'
+    }
+  ];
 
   return (
     <section id="about" className="py-20 bg-white" ref={ref}>
@@ -131,6 +154,41 @@ const About = ({ lang = 'pt' }) => {
                 <h4 className="text-xl font-semibold text-gray-900">{t.degree}</h4>
                 <p className="text-gray-700 font-medium">{t.university}</p>
                 <span className="text-blue-600 font-medium">{t.period}</span>
+              </div>
+            </motion.div>
+
+            {/* Certificações */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="mt-12"
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">{t.certifications}</h3>
+              <div className="space-y-4">
+                {certifications.map((cert, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+                    transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
+                    className="border-l-4 border-green-600 pl-6"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                      <h4 className="text-lg font-semibold text-gray-900">{cert.name}</h4>
+                      <span className="text-green-600 font-medium">{cert.date}</span>
+                    </div>
+                    <p className="text-gray-700 font-medium mb-1">{cert.issuer}</p>
+                    <a 
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors duration-200"
+                    >
+                      Ver certificado →
+                    </a>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </motion.div>

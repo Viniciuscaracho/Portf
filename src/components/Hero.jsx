@@ -91,16 +91,16 @@ const Hero = ({ lang = 'pt' }) => {
             transition={{ delay: 1, duration: 0.8 }}
           >
             <button 
-              onClick={() => scrollToSection('projects')}
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all duration-200 transform hover:scale-105"
-            >
-              {t.projects}
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-200 transform hover:scale-105"
+              onClick={() => scrollToSection('cta')}
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-all duration-200 transform hover:scale-105 font-medium text-lg shadow-lg"
             >
               {t.contact}
+            </button>
+            <button 
+              onClick={() => scrollToSection('projects')}
+              className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-200 transform hover:scale-105 font-medium text-lg"
+            >
+              {t.projects}
             </button>
           </motion.div>
 

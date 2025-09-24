@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react'
+import { Mail, Phone, MapPin, Github, Linkedin, Send, MessageCircle } from 'lucide-react'
 
 const translations = {
   pt: {
@@ -63,13 +63,13 @@ const Contact = ({ lang = 'pt' }) => {
   const t = translations[lang];
   const contactInfo = [
     {
-      icon: <Mail className="w-6 h-6" />, title: t.email, value: '+55 (11) 98150-4864', link: 'tel:+5511981504864'
+      icon: <Mail className="w-6 h-6" />, title: t.email, value: 'viniciuscaracho77@gmail.com', link: 'mailto:viniciuscaracho77@gmail.com'
     },
     {
-      icon: <Phone className="w-6 h-6" />, title: t.phone, value: 'vinicius@example.com', link: 'mailto:vinicius@example.com'
+      icon: <Phone className="w-6 h-6" />, title: t.phone, value: '+55 (11) 98150-4864', link: 'tel:+5511981504864'
     },
     {
-      icon: <MapPin className="w-6 h-6" />, title: t.location, value: 'Dois Vizinhos - Paraná', link: null
+      icon: <MapPin className="w-6 h-6" />, title: t.location, value: 'São Paulo - Capital', link: null
     }
   ]
   const socialLinks = [
@@ -78,6 +78,9 @@ const Contact = ({ lang = 'pt' }) => {
     },
     {
       icon: <Linkedin className="w-6 h-6" />, name: 'LinkedIn', url: 'https://linkedin.com/in/vinicius-caracho-3ab946229', color: 'hover:text-blue-600'
+    },
+    {
+      icon: <MessageCircle className="w-6 h-6" />, name: 'WhatsApp', url: 'https://wa.me/5511981504864?text=Olá%20Vinicius!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.', color: 'hover:text-green-600'
     }
   ]
 
@@ -226,6 +229,27 @@ const Contact = ({ lang = 'pt' }) => {
                 {t.send}
               </motion.button>
             </form>
+
+            {/* WhatsApp CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="mt-8"
+            >
+              <div className="text-center">
+                <p className="text-gray-600 mb-4">Ou entre em contato diretamente pelo WhatsApp</p>
+                <a
+                  href="https://wa.me/5511981504864?text=Olá%20Vinicius!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-all duration-200 font-medium"
+                >
+                  <MessageCircle size={20} />
+                  Conversar no WhatsApp
+                </a>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
